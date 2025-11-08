@@ -15,16 +15,11 @@ email_pattern = re.compile(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})')
 email_matches = re.findall(email_pattern, page_html)
 
 # Store emails in a text file
-with open("emails.txt", "w") as file:
-    for email in email_matches:
-        file.write(email + "\n")
-
-with open("emails.json", "w") as file:
-    for email in email_matches:
-        file.write(email + "\n")        
-
-with open("emails.csv", "w") as file:
-    for email in email_matches:
-        file.write(email + "\n")
+file_names = ["emails.txt", "emails.json", "emails.csv"]
+for file_name in file_names:
+    with open(file_name, "w") as file:
+        for email in email_matches:
+            file.write(email + "\n")
 
 print(f"Extracted {len(email_matches)} emails and saved them in 'emails.txt'.")
+
