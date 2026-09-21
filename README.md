@@ -1,25 +1,38 @@
-# Email Extractor
+# Email Scrapper
 
-This is a simple Python script that extracts email addresses from a webpage provided by the user. It fetches the page content, searches for valid email patterns using Regular Expressions (Regex), and saves all found emails into three different file formats.
+A Flask web app that extracts publicly visible email addresses from a webpage.
 
----
+## Features
 
-## 📌 How It Works
+- Enter a website URL in a browser
+- Extract unique email addresses
+- Download results as TXT, JSON, or CSV
+- Responsive Tailwind CSS interface
+- Ready for deployment on Render
 
-1. You enter the website URL you want to extract emails from.
-2. The script sends an HTTP request to the site.
-3. It scans the HTML content for email addresses.
-4. It saves the extracted emails in:
-   - `emails.txt`
-   - `emails.json`
-   - `emails.csv`
-5. It prints the number of emails found.
-
----
-
-## 🛠 Requirements
-
-Install required dependencies:
+## Run locally
 
 ```bash
-pip install httpx beautifulsoup4
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+Windows:
+
+```bash
+venv\\Scripts\\activate
+```
+
+Then open http://127.0.0.1:5000
+
+## Deploy
+
+The repository includes `render.yaml` and a `Procfile`.
+
+On Render, create a new Web Service from this GitHub repository. Render will install the requirements and start the app with Gunicorn.
+
+## Note
+
+Only scrape websites and collect contact information in ways permitted by the website's terms, applicable law, and privacy requirements.
